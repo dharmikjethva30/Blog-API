@@ -10,7 +10,7 @@ const auth = async (req, res, next) => {
         }
 
         const verified = jwt.verify(token, process.env.JWT_SECRET)
-        const User = await user.findOne({ _id: verified._id })
+        const User = await user.findOne({ _id: verified._id, token : token })
 
         if (!User) {
             res.status(404).json({ message: "Invalid token" })
