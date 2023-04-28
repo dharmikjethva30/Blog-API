@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const morgan = require("morgan")
-const fs = require('fs')
+// const fs = require('fs')
 
 const user = require('./routes/user')
 const blog = require('./routes/blog')
@@ -12,7 +12,10 @@ dotenv.config()
 
 const PORT = process.env.PORT || 3000
 const app = express()
-let accessLogStream = fs.createWriteStream('./access.log', { flags: 'a' })
+
+// To store Logs
+// let accessLogStream = fs.createWriteStream('./access.log', { flags: 'a' })
+// app.use(morgan("combined", { stream: accessLogStream }))
 
 const connect = () => {
     mongoose.connect(process.env.MONGO_URL, {
@@ -26,7 +29,7 @@ const connect = () => {
 // middlewares
 app.use(express.json())
 app.use(cors())
-app.use(morgan("combined", { stream: accessLogStream }))
+
 app.use(morgan("combined"))
 
 app.get('/', (req, res) => {
