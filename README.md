@@ -42,7 +42,7 @@ Start the server
 
 To run this project, you will need to add the following environment variables to your .env file
 
-MONGO_URL = `mongodb+srv://dharmikjethva:welcome2023@blogpost.slrycjp.mongodb.net/?retryWrites=true&w=majority`
+MONGO_URL = `Enter Your MongoDB URL`
 
 JWT_SECRET = `welcome2023`
 
